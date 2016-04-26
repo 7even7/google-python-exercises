@@ -28,7 +28,6 @@ def donuts(count):
     returnString = count
   elif count>=10:
     returnString = 'many'
-  # +++your code here+++
   return 'Number of donuts: '+str(returnString)
 
 
@@ -42,9 +41,6 @@ def both_ends(s):
     returnString = ""
   elif len(s)>2:
     returnString = s[:2] + s[len(s)-2:]
-    
-      
-  # +++your code here+++
   return returnString
 
 
@@ -58,8 +54,8 @@ def both_ends(s):
 # Hint: s.replace(stra, strb) returns a version of string s
 # where all instances of stra have been replaced by strb.
 def fix_start(s):
-  # +++your code here+++
-  return
+  
+  return s[0] + s[1:].replace(s[0],'*')
 
 
 # D. MixUp
