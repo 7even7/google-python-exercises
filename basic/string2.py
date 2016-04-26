@@ -16,8 +16,14 @@
 # If the string length is less than 3, leave it unchanged.
 # Return the resulting string.
 def verbing(s):
-  # +++your code here+++
-  return
+  if len(s)<3:
+    returnString=s
+  elif len(s)>=3 and s[-3:]=='ing':
+    returnString= s+"ly"
+  else:
+    returnString= s+"ing"
+
+  return returnString
 
 
 # E. not_bad
@@ -29,8 +35,13 @@ def verbing(s):
 # So 'This dinner is not that bad!' yields:
 # This dinner is good!
 def not_bad(s):
-  # +++your code here+++
-  return
+  indexnot = s.find("not")
+  bad = s.find("bad")
+  if indexnot < bad :
+    returnString = s[:indexnot] + "good!"
+    return returnString
+  else:
+    return s
 
 
 # F. front_back
@@ -65,7 +76,7 @@ def main():
 
   print
   print 'not_bad'
-  test(not_bad('This movie is not so bad'), 'This movie is good')
+  test(not_bad('This movie is not so bad'), 'This movie is good!')
   test(not_bad('This dinner is not that bad!'), 'This dinner is good!')
   test(not_bad('This tea is not hot'), 'This tea is not hot')
   test(not_bad("It's bad yet not"), "It's bad yet not")
