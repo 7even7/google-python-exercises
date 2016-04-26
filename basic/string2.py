@@ -52,8 +52,21 @@ def not_bad(s):
 # Given 2 strings, a and b, return a string of the form
 #  a-front + b-front + a-back + b-back
 def front_back(a, b):
-  # +++your code here+++
-  return
+  def frontDivider(string):
+    stringLenght=len(string)
+    if stringLenght%2==0:
+      return string[:stringLenght/2]
+    else:
+      return string[:stringLenght/2+1]
+
+  def backDivider(string):
+    stringLenght = len(string)
+    if stringLenght % 2 == 0:
+      return string[stringLenght / 2:]
+    else:
+      return string[stringLenght / 2 + 1:]
+
+  return frontDivider(a)+frontDivider(b)+backDivider(a)+backDivider(b)
 
 
 # Simple provided test() function used in main() to print
