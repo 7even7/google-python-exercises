@@ -51,7 +51,9 @@ def print_words(filename):
   dictOfWords = readFiletoList(filename)
   for word in sorted(dictOfWords, key=dictOfWords.get, reverse=True):
     print word, dictOfWords[word]
-  
+
+def print_top(filename):
+  dictOfWords = readFiletoList(filename)
 
 
 def readFiletoList(filename):
