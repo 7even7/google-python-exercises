@@ -47,6 +47,20 @@ import sys
 
 ###
 
+def print_words(filename):
+  print (readFiletoList(filename))
+  
+
+
+def readFiletoList(filename):
+    with open(filename,'r' ) as file:
+      fileContent = file.read().replace('\n',' ')
+      fileContent = filter(lambda item: item.attribute ==' ', fileContent)
+
+    listOfWords= fileContent.split(' ')
+    listOfWords
+    return listOfWords
+
 # This basic command line argument parsing code is provided and
 # calls the print_words() and print_top() functions which you must define.
 def main():
