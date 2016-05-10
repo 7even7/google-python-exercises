@@ -48,18 +48,30 @@ import sys
 ###
 
 def print_words(filename):
-  print (readFiletoList(filename))
+  dictOfWords = readFiletoList(filename)
+  for word in sorted(dictOfWords, key=dictOfWords.get, reverse=True):
+    print word, dictOfWords[word]
   
 
 
 def readFiletoList(filename):
     with open(filename,'r' ) as file:
-      fileContent = file.read().replace('\n',' ')
-      fileContent = filter(lambda item: item.attribute ==' ', fileContent)
-
+      fileContent = file.read().replace('\n',' ').lower()
+      
     listOfWords= fileContent.split(' ')
-    listOfWords
-    return listOfWords
+    listOfWords = filter(lambda item: not item=='', listOfWords)
+    listOfWords = filter(lambda item: not item=='--', listOfWords)
+    
+    wordCount = {}
+    for word in listOfWords:
+      if word in wordCount:
+        wordCount[word]+=1
+      else:
+        wordCount[word]=1
+    
+    return wordCount
+
+
 
 # This basic command line argument parsing code is provided and
 # calls the print_words() and print_top() functions which you must define.
