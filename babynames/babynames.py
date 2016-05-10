@@ -9,6 +9,7 @@
 import sys
 import re
 
+
 """Baby Names exercise
 
 Define the extract_names() function below and change main()
@@ -42,14 +43,17 @@ def extract_names(filename):
   """
   
   # +++your code here+++
-  file = open(filename,'rU')
-  fileLines = file.readlines()
-  for line in fileLines:
-    
-    match = re.search('1990',line)
-    if match:
-      return 'found', match.group
-  file.close()
+  
+  contents = []
+  with open(filename,'rU') as file:
+    contents = file.read().splitlines()
+  #names = re.search(r'Christopher', contents)
+  for line in contents:
+    match = re.search(r'Christopher', line)
+    print match.group()
+  
+  
+  
 
 def main():
   # This command-line parsing code is provided.
