@@ -40,9 +40,16 @@ def extract_names(filename):
   followed by the name-rank strings in alphabetical order.
   ['2006', 'Aaliyah 91', Aaron 57', 'Abagail 895', ' ...]
   """
+  
   # +++your code here+++
-  return
-
+  file = open(filename,'rU')
+  fileLines = file.readlines()
+  for line in fileLines:
+    
+    match = re.search('1990',line)
+    if match:
+      return 'found', match.group
+  file.close()
 
 def main():
   # This command-line parsing code is provided.
@@ -63,6 +70,8 @@ def main():
   # +++your code here+++
   # For each filename, get the names, then either print the text output
   # or write it to a summary file
+  for filename in args:
+    print filename, extract_names(filename)
   
 if __name__ == '__main__':
   main()
